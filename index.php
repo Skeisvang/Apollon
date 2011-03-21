@@ -12,7 +12,7 @@
 //   skriv 
 //     git commit -a -m "audun: La til ett nytt menyvalg"
 //
-// Dersom du ønsker å jobbe på en lokal kopi av prosjektet skal du
+//       Dersom du ønsker å jobbe på en lokal kopi av prosjektet skal du
 // gjøre følgende på din konto:
 //   cd public_html
 //   git clone 152.93.79.18:/home/apollon/public_html/artikler
