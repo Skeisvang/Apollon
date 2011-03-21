@@ -1,5 +1,5 @@
 <?php
-// En kort innføring i GIT
+//  En kort innføring i GIT
 //
 // rediger en fil (gjerne fra dreamweaver)
 //   dersom dette er en ny fil:
