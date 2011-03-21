@@ -14,10 +14,4 @@ print "Heisan";
 
 
 
-
-// siste linja er tom med vilje
-// php har en tendens til å bli sur dersom
-// du har tomme linjer etter siste  ?  >
-// Derfor slutter denne filen uten denne taggen
-// Det fungerer mye bedre
-
+?>
