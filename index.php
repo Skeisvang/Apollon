@@ -1,4 +1,5 @@
 <?php
+// 21 mars 2011
 // En kort innføring i GIT
 //
 // rediger en fil (gjerne fra dreamweaver)
