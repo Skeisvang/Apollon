@@ -2,6 +2,7 @@
 // 21 mars 2011
 // En kort innføring i GIT
 //
+// jhsgdfjh jhgsdjfhgsdjfh gjh jshdgf
 // rediger en fil (gjerne fra dreamweaver)
 //   dersom dette er en ny fil:
 //   skriv
