@@ -3,10 +3,12 @@
 <head>
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
+	<link rel="stylesheet" href="page.css" type="text/css" />
+	<link rel="stylesheet" href="menu.css" type="text/css" />
 </head>
 <body>
 <div id="menu">
-
+	<!--Here goes the menu!-->
 </div>
 <div id="content">
 
