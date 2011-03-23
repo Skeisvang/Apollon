@@ -31,6 +31,8 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
+$currentPage = $_SERVER["PHP_SELF"];
+
 $maxRows_brukere = 10;
 $pageNum_brukere = 0;
 if (isset($_GET['pageNum_brukere'])) {
@@ -51,6 +53,22 @@ if (isset($_GET['totalRows_brukere'])) {
   $totalRows_brukere = mysql_num_rows($all_brukere);
 }
 $totalPages_brukere = ceil($totalRows_brukere/$maxRows_brukere)-1;
+
+$queryString_brukere = "";
+if (!empty($_SERVER['QUERY_STRING'])) {
+  $params = explode("&", $_SERVER['QUERY_STRING']);
+  $newParams = array();
+  foreach ($params as $param) {
+    if (stristr($param, "pageNum_brukere") == false && 
+        stristr($param, "totalRows_brukere") == false) {
+      array_push($newParams, $param);
+    }
+  }
+  if (count($newParams) != 0) {
+    $queryString_brukere = "&" . htmlentities(implode("&", $newParams));
+  }
+}
+$queryString_brukere = sprintf("&totalRows_brukere=%d%s", $totalRows_brukere, $queryString_brukere);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -78,6 +96,23 @@ $totalPages_brukere = ceil($totalRows_brukere/$maxRows_brukere)-1;
     </tr>
     <?php } while ($row_brukere = mysql_fetch_assoc($brukere)); ?>
 </table>
+<table border="0">
+  <tr>
+    <td><?php if ($pageNum_brukere > 0) { // Show if not first page ?>
+        <a href="<?php printf("%s?pageNum_brukere=%d%s", $currentPage, 0, $queryString_brukere); ?>"><img src="First.gif" /></a>
+        <?php } // Show if not first page ?></td>
+    <td><?php if ($pageNum_brukere > 0) { // Show if not first page ?>
+        <a href="<?php printf("%s?pageNum_brukere=%d%s", $currentPage, max(0, $pageNum_brukere - 1), $queryString_brukere); ?>"><img src="Previous.gif" /></a>
+        <?php } // Show if not first page ?></td>
+    <td><?php if ($pageNum_brukere < $totalPages_brukere) { // Show if not last page ?>
+        <a href="<?php printf("%s?pageNum_brukere=%d%s", $currentPage, min($totalPages_brukere, $pageNum_brukere + 1), $queryString_brukere); ?>"><img src="Next.gif" /></a>
+        <?php } // Show if not last page ?></td>
+    <td><?php if ($pageNum_brukere < $totalPages_brukere) { // Show if not last page ?>
+        <a href="<?php printf("%s?pageNum_brukere=%d%s", $currentPage, $totalPages_brukere, $queryString_brukere); ?>"><img src="Last.gif" /></a>
+        <?php } // Show if not last page ?></td>
+  </tr>
+</table>
+</p>
 </body>
 </html>
 <?php

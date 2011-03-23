@@ -92,6 +92,6 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
   </table>
   <input type="hidden" name="MM_insert" value="form1" />
 </form>
-<p>&nbsp;</p>
+<p>&nbsp;	</p>
 </body>
 </html>
