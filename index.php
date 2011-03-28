@@ -12,7 +12,7 @@
 		</div>
 		
 		<ul id="menu">
-			<li><a href="index.html">Hjem</a></li>
+			<li><a href="index.php">Hjem</a></li>
 			<li><a href="#">Artikler</a></li>
 			<li><a href="#">Brukeroversikt</a></li>
 		</ul>
