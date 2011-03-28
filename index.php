@@ -6,15 +6,19 @@
 	<link rel="stylesheet" href="page.css" type="text/css" />
 	<link rel="stylesheet" href="menu.css" type="text/css" />
 </head>
-<body>
-<div id="menu">
-	<!--Here goes the menu!-->
-</div>
-<div id="content">
-
-</div>
-<div id="footer">
-
-</div>
+	<body>
+		<div id="page_header">
+			<h1>Apollon</h1>
+		</div>
+		
+		<ul id="menu">
+			<li><a href="index.html">Hjem</a></li>
+			<li><a href="#">Artikler</a></li>
+			<li><a href="#">Brukeroversikt</a></li>
+		</ul>
+		
+		<div id="page_content">
+			<h1>hei</h1>
+		</div>
 	</body>
 </html>
