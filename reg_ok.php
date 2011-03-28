@@ -8,6 +8,6 @@
 </head>
 
 <body>
-registrering fullført
+<h2>Registrering fullført</h2>
 </body>
 </html>
