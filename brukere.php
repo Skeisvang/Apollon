@@ -147,7 +147,7 @@ if (isset($_SESSION['MM_Username'] )) {
 				<table class="navbuttons">
 				  <tr>
 				    <td><?php if ($pageNum_brukere > 0) { // Show if not first page ?>
-					<a href="<?php printf("%s?pageNum_brukere=%d%s", $currentPage, 0, $queryString_brukere); ?>"><img src="First.gif" /></a>
+					<a href="<?php printf("%s?pageNum_brukere=%d%s", $currentPage, 0, $queryString_brukere); ?>"><img src="images/First.gif" /></a>
 					<?php } // Show if not first page ?></td>
 				    <td><?php if ($pageNum_brukere > 0) { // Show if not first page ?>
 					<a href="<?php printf("%s?pageNum_brukere=%d%s", $currentPage, max(0, $pageNum_brukere - 1), 
@@ -155,7 +155,7 @@ if (isset($_SESSION['MM_Username'] )) {
 					<?php } // Show if not first page ?></td>
 				    <td><?php if ($pageNum_brukere < $totalPages_brukere) { // Show if not last page ?>
 					<a href="<?php printf("%s?pageNum_brukere=%d%s", $currentPage, min($totalPages_brukere, $pageNum_brukere + 1), 
-					    $queryString_brukere); ?>"><img src="Next.gif" /></a>
+					    $queryString_brukere); ?>"><img src="images/Next.gif" /></a>
 					<?php } // Show if not last page ?></td>
 				    <td><?php if ($pageNum_brukere < $totalPages_brukere) { // Show if not last page ?>
 					<a href="<?php printf("%s?pageNum_brukere=%d%s", $currentPage, $totalPages_brukere, 
