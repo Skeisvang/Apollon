@@ -7,13 +7,13 @@
 	<key>ESProjectWindowState</key>
 	<dict>
 		<key>ContentSize</key>
-		<string>{1156, 801}</string>
+		<string>{1436, 801}</string>
 		<key>ProjectURL</key>
 		<string>file://localhost/Users/henryss/Apollon/Apollon.esproj/</string>
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{-1, 878}</string>
+		<string>{4, 878}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -29,22 +29,10 @@
 		<key>Tabs</key>
 		<array>
 			<dict>
-				<key>StateType</key>
-				<string>PreviewTab</string>
-				<key>URL</key>
-				<string>file:///Users/henryss/Apollon/reg_bruker.php</string>
-			</dict>
-			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/henryss/Apollon/index.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>StateType</key>
-				<string>PreviewTab</string>
-				<key>URL</key>
-				<string>file:///Users/henryss/Apollon/index.php</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
@@ -65,8 +53,26 @@
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/henryss/Apollon/menu.css</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
 				<key>StateType</key>
 				<string>PreviewTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/henryss/Apollon/reg_bruker.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/henryss/Apollon/reg_ok.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
 			</dict>
 		</array>
 	</dict>

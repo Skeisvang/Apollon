@@ -16,3 +16,35 @@ body {
 	font-size: 14px;
 	letter-spacing: 1px;
 }
+
+table.brukerliste {
+  border-collapse:collapse;
+  border:solid gray 1px;
+  width:650px;
+}
+
+table.brukerliste td {
+  width:130px;
+  border:solid gray 1px;
+}
+
+table.navbuttons {
+  /* navigasjonsknapper */
+  border:none;
+  width:160px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+table.navbuttons td {
+  width:20px;
+  border:none;
+}
+
+table.navbuttons img {
+  border:none;
+}
+
+.textcentered {
+  text-align:center;
+}
