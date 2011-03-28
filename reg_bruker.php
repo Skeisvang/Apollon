@@ -65,35 +65,48 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 </head>
 
 <body>
-<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
-  <table align="center">
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Feide:</td>
-      <td><input type="text" name="feide" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Passord:</td>
-      <td><input type="text" name="passord" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Fornavn:</td>
-      <td><input type="text" name="fornavn" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Etternavn:</td>
-      <td><input type="text" name="etternavn" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Mail:</td>
-      <td><input type="text" name="mail" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="submit" value="Registrer bruker" /></td>
-    </tr>
-  </table>
-  <input type="hidden" name="MM_insert" value="form1" />
-</form>
-<p>&nbsp;</p>
+	<div id="page_header">
+		<h1>Apollon</h1>
+	</div>
+	
+	<ul id="menu">
+		<li><a href="index.php">Hjem</a></li>
+		<li><a href="#">Artikler</a></li>
+		<li><a href="#">Brukeroversikt</a></li>
+	</ul>
+	
+	<div id="page_content">
+		<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
+		  <table align="center">
+		    <tr valign="baseline">
+		      <td nowrap="nowrap" align="right">Feide:</td>
+		      <td><input type="text" name="feide" value="" size="32" /></td>
+		    </tr>
+		    <tr valign="baseline">
+		      <td nowrap="nowrap" align="right">Passord:</td>
+		      <td><input type="text" name="passord" value="" size="32" /></td>
+		    </tr>
+		    <tr valign="baseline">
+		      <td nowrap="nowrap" align="right">Fornavn:</td>
+		      <td><input type="text" name="fornavn" value="" size="32" /></td>
+		    </tr>
+		    <tr valign="baseline">
+		      <td nowrap="nowrap" align="right">Etternavn:</td>
+		      <td><input type="text" name="etternavn" value="" size="32" /></td>
+		    </tr>
+		    <tr valign="baseline">
+		      <td nowrap="nowrap" align="right">Mail:</td>
+		      <td><input type="text" name="mail" value="" size="32" /></td>
+		    </tr>
+		    <tr valign="baseline">
+		      <td nowrap="nowrap" align="right">&nbsp;</td>
+		      <td><input type="submit" value="Registrer bruker" /></td>
+		    </tr>
+		  </table>
+		  <input type="hidden" name="MM_insert" value="form1" />
+		</form>
+		<p>&nbsp;</p>
+		<h1>hei</h1>
+	</div>
 </body>
 </html>
