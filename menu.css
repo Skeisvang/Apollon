@@ -10,7 +10,7 @@
 #menu li {
 	float: left;
 	margin: 0;
-	padding: 0;
+	padding-left: 10px;
 	font: 70% Verdana, Helvetica, sans-serif;
 }
 
