@@ -43,6 +43,12 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
   header("Location: ". $MM_restrictGoTo); 
   exit;
 }
+$user = '';
+$isadmin = false;
+if (isset($_SESSION['MM_Username'] )) {
+	$user = $_SESSION['MM_Username'];	
+	$isadmin = in_array($user,explode(',',"msjursen,au,ninamctiernan,meikeland,kfludal,sjoenh"));
+}
 ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
@@ -77,7 +83,8 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 
 mysql_select_db($database_apollon, $apollon);
-$query_Recordset1 = "SELECT artikkel.id, artikkel.overskrift, artikkel.artikkel, artikkel.publisert, artikkel.bruker_feide, artikkel.lerarkarakter FROM artikkel";
+//$query_Recordset1 = "SELECT artikkel.id, artikkel.overskrift, artikkel.artikkel, artikkel.publisert, artikkel.bruker_feide, artikkel.lerarkarakter FROM artikkel where artikkel.bruker_feide=";
+$query_Recordset1 = sprintf("SELECT artikkel.id, artikkel.overskrift, artikkel.artikkel, artikkel.publisert, artikkel.bruker_feide, artikkel.lerarkarakter FROM artikkel where artikkel.bruker_feide='%s'", $user);
 $Recordset1 = mysql_query($query_Recordset1, $apollon) or die(mysql_error());
 $row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
@@ -108,14 +115,14 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 
 
                     <?php
-                       print "Velkommen {$_SESSION["MM_Username"]} ";
+                       print "<h4>Velkommen {$_SESSION["MM_Username"]}</h4> ";
+					   print "Du har {$totalRows_Recordset1} artikkler";
                     ?>
-
+                    <p>
                     <form action="lastoppart.php" method="get" name="nyart">
-
-
-
-
+                      <input value="<?php echo $row_Recordset1['overskrift']; ?>" name="overskrift" type="text" />
+                      <p>
+                      <textarea name="artext" cols="50" rows="20"><?php echo $row_Recordset1['artikkel']; ?></textarea>
                     </form>
                </div>
 </body>
