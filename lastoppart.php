@@ -5,6 +5,36 @@ if (!isset($_SESSION)) {
 }
 $MM_authorizedUsers = "";
 $MM_donotCheckaccess = "true";
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
 
 // *** Restrict Access To Page: Grant or deny access to this page
 function isAuthorized($strUsers, $strGroups, $UserName, $UserGroup) { 
@@ -48,6 +78,19 @@ $isadmin = false;
 if (isset($_SESSION['MM_Username'] )) {
 	$user = $_SESSION['MM_Username'];	
 	$isadmin = in_array($user,explode(',',"msjursen,au,ninamctiernan,meikeland,kfludal,sjoenh"));
+	
+	
+	
+	if (isset($_POST["artext"])) {
+		// brukeren ønsker å lagre en ny artikkel
+		$text = GetSQLValueString($_POST['artext'], "text");
+		$over = GetSQLValueString($_POST["overskrift"],"text");
+		$sql = sprintf("insert into artikkel (overskrift,artikkel,bruker_feide) values (%s,%s,'%s')", $over,$text,$user);
+		print "$sql";
+		mysql_select_db($database_apollon, $apollon);
+		mysql_query($sql, $apollon) or die(mysql_error());
+		
+    }
 }
 ?>
 <?php
@@ -83,11 +126,14 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 
 mysql_select_db($database_apollon, $apollon);
-//$query_Recordset1 = "SELECT artikkel.id, artikkel.overskrift, artikkel.artikkel, artikkel.publisert, artikkel.bruker_feide, artikkel.lerarkarakter FROM artikkel where artikkel.bruker_feide=";
 $query_Recordset1 = sprintf("SELECT artikkel.id, artikkel.overskrift, artikkel.artikkel, artikkel.publisert, artikkel.bruker_feide, artikkel.lerarkarakter FROM artikkel where artikkel.bruker_feide='%s'", $user);
 $Recordset1 = mysql_query($query_Recordset1, $apollon) or die(mysql_error());
-$row_Recordset1 = mysql_fetch_assoc($Recordset1);
+//$row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
+$artlist = array();
+while($artlist[] = mysql_fetch_assoc($Recordset1));
+array_pop($artlist);
+//print_r($artlist);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -117,13 +163,26 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
                     <?php
                        print "<h4>Velkommen {$_SESSION["MM_Username"]}</h4> ";
 					   print "Du har {$totalRows_Recordset1} artikkler";
+					   foreach ($artlist as $art) {
+						   print "<br>" . $art["overskrift"];
+					   }
+					   
                     ?>
                     <p>
-                    <form action="lastoppart.php" method="get" name="nyart">
-                      <input value="<?php echo $row_Recordset1['overskrift']; ?>" name="overskrift" type="text" />
-                      <p>
-                      <textarea name="artext" cols="50" rows="20"><?php echo $row_Recordset1['artikkel']; ?></textarea>
+                    <form action="" method="get">
+                    
                     </form>
+                    <form action="lastoppart.php" method="post" name="nyart">
+                      <p>Overskrift:
+                        <input value="" name="overskrift" size="50" type="text" />
+                      </p>
+                      <p>
+                        Artikkeltekst:<br />
+                        <textarea name="artext" cols="70" rows="30"></textarea>
+                      </p>
+                      <input name="lagre" type="submit" value="lagre" />
+                    </form>
+                    </p>
                </div>
 </body>
 </html>
