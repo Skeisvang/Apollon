@@ -58,11 +58,14 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
+	<link rel="stylesheet" href="page.css" type="text/css" />
+	<link rel="stylesheet" href="menu.css" type="text/css" />
 </head>
 
 <body>
+<<<<<<< HEAD
 <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
   <table align="center">
     <tr valign="baseline">
@@ -93,5 +96,50 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
   <input type="hidden" name="MM_insert" value="form1" />
 </form>
 <p>&nbsp;	</p>
+=======
+	<div id="page_header">
+		<h1>Apollon</h1>
+	</div>
+	
+	<ul id="menu">
+		<li><a href="index.php">Hjem</a></li>
+		<li><a href="#">Artikler</a></li>
+		<li><a href="#">Brukeroversikt</a></li>
+	</ul>
+	
+	<div id="page_content">
+		<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
+		  <table align="center">
+		    <tr valign="baseline">
+		      <td nowrap="nowrap" align="right">Feide:</td>
+		      <td><input type="text" name="feide" value="" size="32" /></td>
+		    </tr>
+		    <tr valign="baseline">
+		      <td nowrap="nowrap" align="right">Passord:</td>
+		      <td><input type="text" name="passord" value="" size="32" /></td>
+		    </tr>
+		    <tr valign="baseline">
+		      <td nowrap="nowrap" align="right">Fornavn:</td>
+		      <td><input type="text" name="fornavn" value="" size="32" /></td>
+		    </tr>
+		    <tr valign="baseline">
+		      <td nowrap="nowrap" align="right">Etternavn:</td>
+		      <td><input type="text" name="etternavn" value="" size="32" /></td>
+		    </tr>
+		    <tr valign="baseline">
+		      <td nowrap="nowrap" align="right">Mail:</td>
+		      <td><input type="text" name="mail" value="" size="32" /></td>
+		    </tr>
+		    <tr valign="baseline">
+		      <td nowrap="nowrap" align="right">&nbsp;</td>
+		      <td><input type="submit" value="Registrer bruker" /></td>
+		    </tr>
+		  </table>
+		  <input type="hidden" name="MM_insert" value="form1" />
+		</form>
+		<p>&nbsp;</p>
+		<h1>hei</h1>
+	</div>
+>>>>>>> 2a362022cce41f65b7900ba75fef6d549980dcae
 </body>
 </html>
