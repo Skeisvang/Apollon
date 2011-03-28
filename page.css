@@ -1,0 +1,18 @@
+body {
+	width: 800px;
+	margin: 0 auto;
+	color: #222;
+}
+
+#page_header {
+	color: 0;
+	background-color: #648976;
+	padding: 10px 0 10px 25px;
+}
+
+#page_content {
+	font: Georgia, Times, serif;
+	padding: 30px 10px 0 25px;
+	font-size: 14px;
+	letter-spacing: 1px;
+}

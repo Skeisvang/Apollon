@@ -1,0 +1,30 @@
+#menu {
+	float: left;
+	width: 100%;
+	list-style: none;
+	background-color: #333;
+	margin: 0;
+	padding: 0;
+}
+
+#menu li {
+	float: left;
+	margin: 0;
+	padding-left: 10px;
+	font: 70% Verdana, Helvetica, sans-serif;
+}
+
+#menu li a {
+	float: left;
+	display: block;
+	color: #CCC;
+	padding: 8px 12px;
+	background: #333 url("images/menu_divider.png") bottom right no-repeat;
+	text-decoration: none;
+}
+
+#menu li a:hover {
+	color: #FFF;
+	padding-bottom: 8px;
+	background: #2580A3 url("images/menu_hover.png") bottom center no-repeat;
+}

@@ -52,5 +52,6 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
 
 <body>
 <h1> Hemmelig </h1>
+<p>&nbsp;</p>
 </body>
 </html>
