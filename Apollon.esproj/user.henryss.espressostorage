@@ -21,6 +21,7 @@
 	<dict>
 		<key>ExpandedURLs</key>
 		<array>
+			<string>file://localhost/Users/henryss/Apollon/Connections</string>
 			<string>file://localhost/Users/henryss/Apollon/images</string>
 		</array>
 	</dict>
@@ -45,6 +46,24 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/henryss/Apollon/menu.css</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/henryss/Apollon/lastoppart.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/henryss/Apollon/page.css</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/henryss/Apollon/artikkel.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
