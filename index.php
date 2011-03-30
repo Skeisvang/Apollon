@@ -1,4 +1,5 @@
 <?php
+require_once("Connections/apollon.php");
 if (!isset($_SESSION)) {
   session_start();
 }
@@ -46,22 +47,18 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
 $user = '';
 $isadmin = false;
 if (isset($_SESSION['MM_Username'] )) {
+	mysql_select_db($database_apollon, $apollon);
 	$user = $_SESSION['MM_Username'];	
 	$isadmin = in_array($user,explode(',',"msjursen,au,ninamctiernan,meikeland,kfludal,sjoenh"));
-	/////////////////////////////
-	//// kode for å vise tildelte artikler
-	//"select count(id) from artikkel where bruker_feide = '%s' "
-	//"select * from karakter k where bruker_feide='%s' ";
-	/*
-	mysql_select_db($database_apollon, $apollon);
-$query_Recordset1 = sprintf("SELECT artikkel.id, artikkel.overskrift, artikkel.artikkel, artikkel.publisert, artikkel.bruker_feide, artikkel.lerarkarakter FROM artikkel where artikkel.bruker_feide='%s'", $user);
+	
+	
+/*$query_Recordset1 = sprintf("SELECT artikkel.id, artikkel.overskrift, artikkel.artikkel, artikkel.publisert, artikkel.bruker_feide, artikkel.lerarkarakter FROM artikkel where artikkel.bruker_feide='%s'", $user);
 $Recordset1 = mysql_query($query_Recordset1, $apollon) or die(mysql_error());
 //$row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 $artlist = array();
 while($artlist[] = mysql_fetch_assoc($Recordset1));
-array_pop($artlist);
-*/
+array_pop($artlist);*/
 }
 
 ?>
@@ -84,8 +81,73 @@ array_pop($artlist);
 	<li><a href="brukere.php">Brukeroversikt</a></li>
 </ul>
 		<div id="page_content">
-			<h1>Velkommen</h1>
-            <p>Velkommen til Apollon, her vil du kunne laste opp dine egne artikler i tillegg til å kommentere og vurdere andre sine.</p>
+			<h1>Vurderinger</h1>
+<?php
+if (isset($_SESSION['MM_Username'] )) {
+	$qNumArtikler = sprintf("select * from artikkel where bruker_feide = '%s'", $user);
+	$rNumArtikler = mysql_query($qNumArtikler, $apollon);
+	if (mysql_num_rows($rNumArtikler) > 0)
+	{ // Brukeren har artikler og må vurdere
+		$NumArtikler = mysql_num_rows($rNumArtikler);
+		$qNumVurderinger = sprintf("select * from karakter where bruker_feide='%s'", $user);
+		$rNumVurderinger = mysql_query($qNumVurderinger);
+		if (mysql_num_rows($rNumVurderinger) > 0)
+		{ // Brukeren har fått tildelt vurderinger
+		
+			$aVurderte = array();
+			$aUvurderte = array();
+			while ($aVurdering = mysql_fetch_assoc($rNumVurderinger))
+			{
+				if ($aVurdering['karakter'] == NULL)
+				{
+					$aVurderte[] = $aVurdering;
+				}
+				else
+				{
+					$aUvurderte[] = $aVurdering;
+				}
+			}
+?>
+            <p>Velkommen til Apollon, her er en status over dine vurderinger:</p>
+            <table class="brukerliste">
+            	<h2>Vurderte</h2>
+            	<tr>
+                	<th>Artikkel</th>
+                    <th>Bruker</th>
+                    <th>Karakter</th>
+                </tr>
+                <?php
+                foreach ($aUvurderte as $a)
+				{
+					print '<tr>';
+					print '<td><a href="vurder.php?id='.$a['artikkel_id'].'>'.$a['overskrift'].'</a></td>';
+					print '<td>'.$a['artikkel_bruker_feide'].'</td>';
+					print '<td>'.$a['karakter'].'</td>';
+					print '</tr>';
+				}
+				?>
+            </table>
+            <table class="brukerliste">
+            	<h2>Uvurderte</h2>
+            	<tr>
+                	<th>Artikkel</th>
+                    <th>Bruker</th>
+                </tr>
+                <?php
+				foreach ($aUvurderte as $a)
+				{
+					print '<tr>';
+					print '<td><a href="vurder.php?id='.$a['artikkel_id'].'>'.$a['overskrift'].'</a></td>';
+					print '<td>'.$a['artikkel_bruker_feide'].'</td>';
+					print '</tr>';
+				}
+				?>
+            </table>
+<?php
+            }
+		}
+	}
+?>
 		</div>
 	</body>
 </html>
