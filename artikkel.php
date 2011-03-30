@@ -16,7 +16,14 @@ $aNavn = mysql_fetch_assoc($qNavn);
 $navn = $aNavn['fornavn'] . " " . $aNavn['etternavn'];
 
 ?>
-<h2><?php echo $artikkel['overskrift']; ?></h2>
-<small>Skrevet av <?php echo $navn; ?></small>
-<p><?php echo nl2br($artikkel['artikkel']); ?></p>
-<a href="brukerartikler.php?feide=<?php echo $artikkel['bruker_feide']; ?>">Tilbake</a>
+<html>
+	<head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h2><?php echo $artikkel['overskrift']; ?></h2>
+        <small>Skrevet av <?php echo $navn; ?></small>
+        <p><?php echo $artikkel['artikkel']; ?></p>
+        <a href="brukerartikler.php?feide=<?php echo $artikkel['bruker_feide']; ?>">Tilbake</a>
+    </body>
+</html>
