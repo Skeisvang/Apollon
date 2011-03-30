@@ -73,6 +73,7 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
   header("Location: ". $MM_restrictGoTo); 
   exit;
 }
+//Sjekker om bruker er admin.
 $user = '';
 $isadmin = false;
 if (isset($_SESSION['MM_Username'] )) {

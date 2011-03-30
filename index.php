@@ -8,7 +8,7 @@
 </head>
 	<body>
 		<div id="page_header">
-			<h1>Apollon</h1>
+			<h1 id="logo">Apollon</h1>
 		</div>
 		
 		<ul id="menu">
