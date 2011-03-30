@@ -7,11 +7,11 @@ $MM_donotCheckaccess = "true";
 
 // *** Restrict Access To Page: Grant or deny access to this page
 function isAuthorized($strUsers, $strGroups, $UserName, $UserGroup) { 
-   For security, start by assuming the visitor is NOT authorized. 
+//   For security, start by assuming the visitor is NOT authorized. 
   $isValid = False; 
 
-   When a visitor has logged into this site, the Session variable MM_Username set equal to their username. 
-   Therefore, we know that a user is NOT logged in if that Session variable is blank. 
+//   When a visitor has logged into this site, the Session variable MM_Username set equal to their username. 
+//   Therefore, we know that a user is NOT logged in if that Session variable is blank. 
   if (!empty($UserName)) { 
      Besides being logged in, you may restrict access to only certain users based on an ID established when they login. 
      Parse the strings into arrays. 
@@ -20,7 +20,7 @@ function isAuthorized($strUsers, $strGroups, $UserName, $UserGroup) {
     if (in_array($UserName, $arrUsers)) { 
       $isValid = true; 
     } 
-     Or, you may restrict access to only certain users based on their username. 
+//     Or, you may restrict access to only certain users based on their username. 
     if (in_array($UserGroup, $arrGroups)) { 
       $isValid = true; 
     } 
@@ -48,10 +48,9 @@ $isadmin = false;
 if (isset($_SESSION['MM_Username'] )) {
 	$user = $_SESSION['MM_Username'];	
 	$isadmin = in_array($user,explode(',',"msjursen,au,ninamctiernan,meikeland,kfludal,sjoenh"));
-	///////////////////////
-	 kode for å vise tildelte artikler
-	"select count(id) from artikkel where bruker_feide = '%s' "
-	"select * from karakter k where bruker_feide='%s' ";
+//	 kode for å vise tildelte artikler
+//	"select count(id) from artikkel where bruker_feide = '%s' "
+//	"select * from karakter k where bruker_feide='%s' ";
 	/*
 	mysql_select_db($database_apollon, $apollon);
 $query_Recordset1 = sprintf("SELECT artikkel.id, artikkel.overskrift, artikkel.artikkel, artikkel.publisert, artikkel.bruker_feide, artikkel.lerarkarakter FROM artikkel where artikkel.bruker_feide='%s'", $user);
