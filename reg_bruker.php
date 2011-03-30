@@ -103,8 +103,8 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 	
 	<ul id="menu">
 		<li><a href="index.php">Hjem</a></li>
-		<li><a href="#">Artikler</a></li>
-		<li><a href="#">Brukeroversikt</a></li>
+		<li><a href="lastoppart.php">Ny Artikkel</a></li>
+		<li><a href="brukere.php">Brukeroversikt</a></li>
 	</ul>
 	
 	<div id="page_content">

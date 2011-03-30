@@ -20,7 +20,9 @@
 	<key>com.macrabbit.Espresso.FileManager.FileControllerState</key>
 	<dict>
 		<key>ExpandedURLs</key>
-		<array/>
+		<array>
+			<string>file://localhost/Users/henryss/Apollon/images</string>
+		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
 	<false/>
@@ -83,6 +85,12 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/henryss/Apollon/artikkel.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/henryss/Apollon/lastoppart.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
