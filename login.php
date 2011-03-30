@@ -94,9 +94,11 @@ if (isset($_POST['username'])) {
         <?php include("meny.php"); ?>
         <div id="page_content">
             <form action="<?php echo $loginFormAction; ?>" method="POST" name="login">
-            <input name="username" type="text" />
-            <input name="password" type="password" />
-            <input name="login" type="submit" value="Logg inn" />
+            	<label for="username">Brukernavn</label><br />
+                <input name="username" type="text" /> <br />
+                <label for="password">Passord</label><br />
+                <input name="password" type="password" /> <br />
+                <input name="login" type="submit" value="Logg inn" />
             </form>
         </div>
     </body>
