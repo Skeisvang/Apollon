@@ -174,7 +174,7 @@ if (isset($_SESSION['MM_Username'] )) {
 			  <tbody>
 			  <?php do { ?>
 			    <tr>
-			      <td><a href="brukerartikler.php?feide=<?php echo $row_brukere['feide']; ?>"<?php echo $row_brukere['feide']; ?></a></td>
+			      <td><a href="brukerartikler.php?feide=<?php echo $row_brukere['feide']; ?>"><?php echo $row_brukere['feide']; ?></a></td>
 			      <td><?php  if ($isadmin) {  echo $row_brukere['passord']; } else { echo 'xxxx'; } ?></td>
 			      <td><?php echo $row_brukere['fornavn']; ?></td>
 			      <td><?php echo $row_brukere['etternavn']; ?></td>

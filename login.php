@@ -81,22 +81,25 @@ if (isset($_POST['username'])) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
-</head>
-
-<body>
-<form action="<?php echo $loginFormAction; ?>" method="POST" name="login">
-<input name="username" type="text" />
-<input name="password" type="password" />
-<input name="login" type="submit" value="Logg inn" />
-
-
-</form>
-
-
-</body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Untitled Document</title>
+        <link href="page.css" rel="stylesheet" type="text/css" />
+        <link href="menu.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="page_header">
+        	<h1>Apollon</h1>
+        </div>
+        <?php include("meny.php"); ?>
+        <div id="page_content">
+            <form action="<?php echo $loginFormAction; ?>" method="POST" name="login">
+            <input name="username" type="text" />
+            <input name="password" type="password" />
+            <input name="login" type="submit" value="Logg inn" />
+            </form>
+        </div>
+    </body>
 </html>
 <?php
 mysql_free_result($Recordset1);

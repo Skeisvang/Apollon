@@ -2,11 +2,12 @@ body {
 	width: 800px;
 	margin: 0 auto;
 	color: #222;
+	background-color: #f0f0f0;
 }
 
 #page_header {
 	color: 0;
-	background-color: #648976;
+	background-color: #376aa4;
 	padding: 10px 0 10px 25px;
 }
 

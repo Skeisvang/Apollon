@@ -150,11 +150,7 @@ array_pop($artlist);
                         <h1>Apollon</h1>
                 </div>
 
-                <ul id="menu">
-                        <li><a href="index.php">Hjem</a></li>
-                        <li><a href="#">Artikler</a></li>
-                        <li><a href="#">Brukeroversikt</a></li>
-                </ul>
+                <?php include("meny.php"); ?>
 
                 <div id="page_content">
                
