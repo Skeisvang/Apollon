@@ -157,8 +157,11 @@ array_pop($artlist);
 
 
                     <?php
-                       print "<h4>Velkommen {$_SESSION["MM_Username"]}</h4> ";
-					   print "Du har {$totalRows_Recordset1} artikkler<p>";
+					   $qNavn = mysql_query("SELECT * FROM bruker WHERE feide = '" . $_SESSION["MM_Username"] ."'") or die(mysql_error());
+					   $aNavn = mysql_fetch_assoc($qNavn);
+					   $navn = $aNavn['fornavn'] . " " . $aNavn['etternavn'];
+                       print "<h4>Velkommen {$navn}</h4> ";
+					   print "Du har {$totalRows_Recordset1} artikler<p>";
 					   print '<table class="brukerliste"><tr><th>Vis artikkel</th><th>Rediger</th></tr>';
 					   foreach ($artlist as $art) {
 						   print '<tr>';
@@ -177,7 +180,7 @@ array_pop($artlist);
                         Artikkeltekst:<br />
                         <textarea name="artext" cols="70" rows="30"></textarea>
                       </p>
-                      <input name="lagre" type="submit" value="lagre" />
+                      <input name="lagre" type="submit" value="Lagre" />
                     </form>
                     </p>
                </div>
