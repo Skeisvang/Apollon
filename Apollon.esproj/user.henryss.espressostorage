@@ -68,18 +68,6 @@
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
-				<key>StateType</key>
-				<string>PreviewTab</string>
-				<key>URL</key>
-				<string>file:///Users/henryss/Apollon/index.php</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/henryss/Apollon/header.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/henryss/Apollon/brukerartikler.php</string>
 				<key>StateType</key>
@@ -100,6 +88,12 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/henryss/Apollon/reg_bruker.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/henryss/Apollon/menu.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

@@ -87,17 +87,9 @@ if (isset($_POST['username'])) {
         <link href="page.css" rel="stylesheet" type="text/css" />
         <link href="menu.css" rel="stylesheet" type="text/css" />
     </head>
-    <body>
-        
-<div id="page_header">
-	<h1 id="logo">Apollon</h1>
-</div>
-
-<ul id="menu">
-	<li><a href="index.php">Hjem</a></li>
-	<li><a href="lastoppart.php">Ny Artikkel</a></li>
-	<li><a href="brukere.php">Brukeroversikt</a></li>
-</ul>        <div id="page_content">
+    <body>      
+<?php include 'menu.php' ?>
+<div id="page_content">
             <form action="<?php echo $loginFormAction; ?>" method="POST" name="login">
             	<label for="username">Brukernavn</label><br />
                 <input name="username" type="text" /> <br />
