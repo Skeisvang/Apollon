@@ -79,8 +79,28 @@ $isadmin = false;
 if (isset($_SESSION['MM_Username'] )) {
 	$user = $_SESSION['MM_Username'];	
 	$isadmin = in_array($user,explode(',',"msjursen,au,ninamctiernan,meikeland,kfludal,sjoenh"));
-	
-	
+
+	if (isset($_POST["pubart"])) {
+		// brukeren ønsker å publisere en artikkel
+		$artid = GetSQLValueString($_POST['pubart'], "int");
+		$sql = sprintf("update artikkel set publisert=null where bruker_feide='%s'",$user);
+		//print "$sql";
+		mysql_select_db($database_apollon, $apollon);
+		mysql_query($sql, $apollon) or die(mysql_error());
+		$sql = sprintf("update artikkel set publisert=%s where id=%s and bruker_feide='%s'", time(),$artid,$user);
+		mysql_query($sql, $apollon) or die(mysql_error());
+		
+    }
+
+	if (isset($_POST["artid"])) {
+		// brukeren ønsker å slette en artikkel
+		$artid = GetSQLValueString($_POST['artid'], "int");
+		$sql = sprintf("delete from artikkel where id=%s and bruker_feide='%s'", $artid,$user);
+		//print "$sql";
+		mysql_select_db($database_apollon, $apollon);
+		mysql_query($sql, $apollon) or die(mysql_error());
+		
+    }
 	
 	if (isset($_POST["artext"])) {
 		// brukeren ønsker å lagre en ny artikkel
@@ -127,7 +147,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 
 mysql_select_db($database_apollon, $apollon);
-$query_Recordset1 = sprintf("SELECT artikkel.id, artikkel.overskrift, artikkel.artikkel, artikkel.publisert, artikkel.bruker_feide, artikkel.lerarkarakter FROM artikkel where artikkel.bruker_feide='%s'", $user);
+$query_Recordset1 = sprintf("SELECT id, overskrift, artikkel, publisert, bruker_feide, lerarkarakter FROM artikkel where bruker_feide='%s'", $user);
 $Recordset1 = mysql_query($query_Recordset1, $apollon) or die(mysql_error());
 //$row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
@@ -140,7 +160,7 @@ array_pop($artlist);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
+<title>Last opp artikkel</title>
 <link href="page.css" rel="stylesheet" type="text/css" />
 <link href="menu.css" rel="stylesheet" type="text/css" />
 </head>
@@ -162,11 +182,19 @@ array_pop($artlist);
 					   $navn = $aNavn['fornavn'] . " " . $aNavn['etternavn'];
                        print "<h4>Velkommen {$navn}</h4> ";
 					   print "Du har {$totalRows_Recordset1} artikler<p>";
-					   print '<table class="brukerliste"><tr><th>Vis artikkel</th><th>Rediger</th></tr>';
+					   print '<table class="brukerliste"><tr><th>Vis artikkel</th><th>Rediger</th><th>Slett</th></tr>';
 					   foreach ($artlist as $art) {
 						   print '<tr>';
 						   print '<td><a target="_nyside" href="vis_en_artikkel.php?artid='.$art["id"] . '">' . $art["overskrift"] . '</a></td>';
 						   print '<td><a  target="_annaside" href="rediger_en_artikkel.php?artid='.$art["id"] . '">' . $art["overskrift"] . '</a></td>';
+						   print '<td><form action="lastoppart.php" method="post" name="remove"><input name="artid" type="hidden" value="'.$art["id"]
+						                .'"><input name="slett" type="submit" value="slett" /></form></td>';
+						   if ($art["publisert"]) {
+							  print "<td>Publisert</td>";
+						   } else {
+						     print '<td><form action="lastoppart.php" method="post" name="publish"><input name="pubart" type="hidden" value="'.$art["id"]
+						                .'"><input name="publiser" type="submit" value="publiser" /></form></td>';	
+						   }
 						   print '</tr>';
 					   }	
 					   print '</table>';
