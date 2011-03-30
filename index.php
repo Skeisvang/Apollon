@@ -73,7 +73,7 @@ array_pop($artlist);
 	<link rel="stylesheet" href="menu.css" type="text/css" />
 </head>
 	<body>
-//<?php include 'menu.php' ?>
+<?php include 'menu.php' ?>
 		<div id="page_content">
 			<h1>Velkommen</h1>
             <p>Velkommen til Apollon, her vil du kunne laste opp dine egne artikler i tillegg til å kommentere og vurdere andre sine.</p>
