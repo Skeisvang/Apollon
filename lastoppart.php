@@ -159,21 +159,16 @@ array_pop($artlist);
                     <?php
                        print "<h4>Velkommen {$_SESSION["MM_Username"]}</h4> ";
 					   print "Du har {$totalRows_Recordset1} artikkler<p>";
-					   print '<table><th>Vis artikkel</th><th>Rediger</th><tr><td>';
+					   print '<table class="brukerliste"><tr><th>Vis artikkel</th><th>Rediger</th></tr>';
 					   foreach ($artlist as $art) {
-						   print '<br><a target="_nyside" href="vis_en_artikkel.php?artid='.$art["id"] . '">' . $art["overskrift"] . '</a>';
-					   }
-					   print "</td><td>";
-					   foreach ($artlist as $art) {
-						   print '<br><a  target="_annaside" href="rediger_en_artikkel.php?artid='.$art["id"] . '">' . $art["overskrift"] . '</a>';
-					   }
-					   print '</td></tr></table>';
-					   
+						   print '<tr>';
+						   print '<td><a target="_nyside" href="vis_en_artikkel.php?artid='.$art["id"] . '">' . $art["overskrift"] . '</a></td>';
+						   print '<td><a  target="_annaside" href="rediger_en_artikkel.php?artid='.$art["id"] . '">' . $art["overskrift"] . '</a></td>';
+						   print '</tr>';
+					   }	
+					   print '</table>';
                     ?>
                     <p>
-                    <form action="" method="get">
-                    
-                    </form>
                     <form action="lastoppart.php" method="post" name="nyart">
                       <p>Overskrift:
                         <input value="" name="overskrift" size="50" type="text" />
