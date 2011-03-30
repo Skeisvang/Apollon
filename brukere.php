@@ -131,9 +131,7 @@ if (isset($_SESSION['MM_Username'] )) {
 </head>
 
 <body>
-		<div id="page_header">
-			<h1>Apollon</h1>
-		</div>
+		
         
 <div id="page_header">
 	<h1 id="logo">Apollon</h1>

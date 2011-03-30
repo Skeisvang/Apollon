@@ -88,9 +88,7 @@ if (isset($_POST['username'])) {
         <link href="menu.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <div id="page_header">
-        	<h1>Apollon</h1>
-        </div>
+        
 <div id="page_header">
 	<h1 id="logo">Apollon</h1>
 </div>

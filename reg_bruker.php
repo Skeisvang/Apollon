@@ -97,9 +97,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 </form>
 <p>&nbsp;	</p>
 =======
-	<div id="page_header">
-		<h1>Apollon</h1>
-	</div>
+	
 	
 <div id="page_header">
 	<h1 id="logo">Apollon</h1>
