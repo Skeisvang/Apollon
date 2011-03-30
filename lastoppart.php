@@ -8,9 +8,6 @@ $MM_donotCheckaccess = "true";
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
-  if (PHP_VERSION < 6) {
-    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-  }
 
   $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
 
@@ -86,7 +83,7 @@ if (isset($_SESSION['MM_Username'] )) {
 		$text = GetSQLValueString($_POST['artext'], "text");
 		$over = GetSQLValueString($_POST["overskrift"],"text");
 		$sql = sprintf("insert into artikkel (overskrift,artikkel,bruker_feide) values (%s,%s,'%s')", $over,$text,$user);
-		print "$sql";
+		//print "$sql";
 		mysql_select_db($database_apollon, $apollon);
 		mysql_query($sql, $apollon) or die(mysql_error());
 		
@@ -151,9 +148,9 @@ array_pop($artlist);
                 </div>
 
                 <ul id="menu">
-                        <li><a href="index.php">Hjem</a></li>
-                        <li><a href="#">Artikler</a></li>
-                        <li><a href="#">Brukeroversikt</a></li>
+                	<li><a href="index.php">Hjem</a></li>
+                	<li><a href="lastoppart.php">Ny Artikkel</a></li>
+                	<li><a href="brukere.php">Brukeroversikt</a></li>
                 </ul>
 
                 <div id="page_content">
@@ -164,7 +161,7 @@ array_pop($artlist);
                        print "<h4>Velkommen {$_SESSION["MM_Username"]}</h4> ";
 					   print "Du har {$totalRows_Recordset1} artikkler";
 					   foreach ($artlist as $art) {
-						   print "<br>" . $art["overskrift"];
+						   print '<br><a href="vis_en_artikkel.php?artid='.$art["id"] . '">' . $art["overskrift"] . '</a>';
 					   }
 					   
                     ?>
