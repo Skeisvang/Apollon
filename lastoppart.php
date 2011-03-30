@@ -9,7 +9,7 @@ if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
   if (PHP_VERSION < 6) {
-    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+    $theValue = get_magic_quotes_gpc('''''''''''''''') ? stripslashes($theValue) : $theValue;
   }
 
   $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
@@ -151,9 +151,9 @@ array_pop($artlist);
                 </div>
 
                 <ul id="menu">
-                        <li><a href="index.php">Hjem</a></li>
-                        <li><a href="#">Artikler</a></li>
-                        <li><a href="#">Brukeroversikt</a></li>
+                	<li><a href="index.php">Hjem</a></li>
+                	<li><a href="lastoppart.php">Ny Artikkel</a></li>
+                	<li><a href="brukere.php">Brukeroversikt</a></li>
                 </ul>
 
                 <div id="page_content">
