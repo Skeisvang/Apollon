@@ -41,7 +41,7 @@
 				<key>StateType</key>
 				<string>PreviewTab</string>
 				<key>URL</key>
-				<string>http://localhost/</string>
+				<string>http://localhost/login.php?accesscheck=%2Findex.php</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
@@ -76,6 +76,30 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/henryss/Apollon/header.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/henryss/Apollon/brukerartikler.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/henryss/Apollon/brukere.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/henryss/Apollon/login.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/henryss/Apollon/reg_bruker.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

@@ -24,8 +24,15 @@ $navn = $aNavn['fornavn'] . " " . $aNavn['etternavn'];
         <div id="page_header">
         	<h1>Apollon</h1>
         </div>        
-        <?php include("meny.php"); ?>
-        <div id="page_content">
+<div id="page_header">
+	<h1 id="logo">Apollon</h1>
+</div>
+
+<ul id="menu">
+	<li><a href="index.php">Hjem</a></li>
+	<li><a href="lastoppart.php">Ny Artikkel</a></li>
+	<li><a href="brukere.php">Brukeroversikt</a></li>
+</ul>        <div id="page_content">
             <table class="brukerliste">
                 <h2><?php echo $navn; ?> sine artikler</h2>
                 <tr>
