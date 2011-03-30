@@ -78,7 +78,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 
 $currentPage = $_SERVER["PHP_SELF"];
 
-$maxRows_brukere = 10;
+$maxRows_brukere = 30;
 $pageNum_brukere = 0;
 if (isset($_GET['pageNum_brukere'])) {
   $pageNum_brukere = $_GET['pageNum_brukere'];
@@ -86,7 +86,7 @@ if (isset($_GET['pageNum_brukere'])) {
 $startRow_brukere = $pageNum_brukere * $maxRows_brukere;
 
 mysql_select_db($database_apollon, $apollon);
-$query_brukere = "SELECT * FROM bruker";
+$query_brukere = "SELECT b.*, count(a.id) as antall FROM bruker b left join artikkel a on (b.feide = a.bruker_feide) group by b.feide ";
 $query_limit_brukere = sprintf("%s LIMIT %d, %d", $query_brukere, $startRow_brukere, $maxRows_brukere);
 $brukere = mysql_query($query_limit_brukere, $apollon) or die(mysql_error());
 $row_brukere = mysql_fetch_assoc($brukere);
@@ -165,6 +165,7 @@ if (isset($_SESSION['MM_Username'] )) {
 			    <th>passord</th>
 			    <th>fornavn</th>
 			    <th>etternavn</th>
+			    <th>antall-art</th>
 			    <th>mail</th>
 			  </tr>
 			  <tbody>
@@ -174,6 +175,7 @@ if (isset($_SESSION['MM_Username'] )) {
 			      <td><?php  if ($isadmin) {  echo $row_brukere['passord']; } else { echo 'xxxx'; } ?></td>
 			      <td><?php echo $row_brukere['fornavn']; ?></td>
 			      <td><?php echo $row_brukere['etternavn']; ?></td>
+			      <td><?php echo $row_brukere['antall']; ?></td>
 			      <td><?php echo $row_brukere['mail']; ?></td>
 			    </tr>
       <?php } while ($row_brukere = mysql_fetch_assoc($brukere)); ?>
