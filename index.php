@@ -18,7 +18,8 @@
 		</ul>
 		
 		<div id="page_content">
-			<h1>hei</h1>
+			<h1>Velkommen</h1>
+            <p>Velkommen til Apollon, her vil du kunne laste opp dine egne artikler i tillegg til å kommentere og vurdere andre sine.</p>
 		</div>
 	</body>
 </html>

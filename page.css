@@ -1,8 +1,9 @@
 body {
 	width: 800px;
-	margin: 0 auto;
+	margin: 2em auto;
 	color: #222;
 	background-color: #f0f0f0;
+	border: 1px solid #333333;
 }
 
 #page_header {
