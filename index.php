@@ -14,7 +14,7 @@ function isAuthorized($strUsers, $strGroups, $UserName, $UserGroup) {
 //   Therefore, we know that a user is NOT logged in if that Session variable is blank. 
   if (!empty($UserName)) { 
 //     Besides being logged in, you may restrict access to only certain users based on an ID established when they login. 
-     Parse the strings into arrays. 
+//     Parse the strings into arrays. 
     $arrUsers = Explode(",", $strUsers); 
     $arrGroups = Explode(",", $strGroups); 
     if (in_array($UserName, $arrUsers)) { 
