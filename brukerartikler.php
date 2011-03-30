@@ -21,9 +21,7 @@ $navn = $aNavn['fornavn'] . " " . $aNavn['etternavn'];
         <link rel="stylesheet" href="menu.css" type="text/css" />
     </head>
     <body>
-        <div id="page_header">
-        	<h1>Apollon</h1>
-        </div>        
+                
 <div id="page_header">
 	<h1 id="logo">Apollon</h1>
 </div>
@@ -32,7 +30,8 @@ $navn = $aNavn['fornavn'] . " " . $aNavn['etternavn'];
 	<li><a href="index.php">Hjem</a></li>
 	<li><a href="lastoppart.php">Ny Artikkel</a></li>
 	<li><a href="brukere.php">Brukeroversikt</a></li>
-</ul>        <div id="page_content">
+</ul>       
+ <div id="page_content">
             <table class="brukerliste">
                 <h2><?php echo $navn; ?> sine artikler</h2>
                 <tr>
