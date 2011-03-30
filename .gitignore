@@ -1,9 +1,10 @@
 _notes/*
 *bak
-<<<<<<< HEAD
 ._*
 _m
-=======
 *esproj
 .DS_Store
->>>>>>> bc28fc0800d59947774491c8adfff42159782fae
+Connections/_notes/
+_mmServerScripts/
+images/_notes/
+

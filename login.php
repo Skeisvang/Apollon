@@ -53,7 +53,7 @@ if (isset($_POST['username'])) {
   $password=$_POST['password'];
   $MM_fldUserAuthorization = "";
   $MM_redirectLoginSuccess = "index.php";
-  $MM_redirectLoginFailed = "login2.php";
+  $MM_redirectLoginFailed = "login.php";
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_apollon, $apollon);
   
