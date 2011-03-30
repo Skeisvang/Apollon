@@ -74,16 +74,15 @@ array_pop($artlist);
 	<link rel="stylesheet" href="menu.css" type="text/css" />
 </head>
 	<body>
-		<div id="page_header">
-			<h1 id="logo">Apollon</h1>
-		</div>
-		
-		<ul id="menu">
-			<li><a href="index.php">Hjem</a></li>
-			<li><a href="lastoppart.php">Ny Artikkel</a></li>
-			<li><a href="brukere.php">Brukeroversikt</a></li>
-		</ul>
-		
+<div id="page_header">
+	<h1 id="logo">Apollon</h1>
+</div>
+
+<ul id="menu">
+	<li><a href="index.php">Hjem</a></li>
+	<li><a href="lastoppart.php">Ny Artikkel</a></li>
+	<li><a href="brukere.php">Brukeroversikt</a></li>
+</ul>
 		<div id="page_content">
 			<h1>Velkommen</h1>
             <p>Velkommen til Apollon, her vil du kunne laste opp dine egne artikler i tillegg til å kommentere og vurdere andre sine.</p>
