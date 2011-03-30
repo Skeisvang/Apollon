@@ -5,22 +5,22 @@ if (!isset($_SESSION)) {
 $MM_authorizedUsers = "";
 $MM_donotCheckaccess = "true";
 
-// *** Restrict Access To Page: Grant or deny access to this page
+ *** Restrict Access To Page: Grant or deny access to this page
 function isAuthorized($strUsers, $strGroups, $UserName, $UserGroup) { 
-  // For security, start by assuming the visitor is NOT authorized. 
+   For security, start by assuming the visitor is NOT authorized. 
   $isValid = False; 
 
-  // When a visitor has logged into this site, the Session variable MM_Username set equal to their username. 
-  // Therefore, we know that a user is NOT logged in if that Session variable is blank. 
+   When a visitor has logged into this site, the Session variable MM_Username set equal to their username. 
+   Therefore, we know that a user is NOT logged in if that Session variable is blank. 
   if (!empty($UserName)) { 
-    // Besides being logged in, you may restrict access to only certain users based on an ID established when they login. 
-    // Parse the strings into arrays. 
+     Besides being logged in, you may restrict access to only certain users based on an ID established when they login. 
+     Parse the strings into arrays. 
     $arrUsers = Explode(",", $strUsers); 
     $arrGroups = Explode(",", $strGroups); 
     if (in_array($UserName, $arrUsers)) { 
       $isValid = true; 
     } 
-    // Or, you may restrict access to only certain users based on their username. 
+     Or, you may restrict access to only certain users based on their username. 
     if (in_array($UserGroup, $arrGroups)) { 
       $isValid = true; 
     } 
@@ -48,15 +48,15 @@ $isadmin = false;
 if (isset($_SESSION['MM_Username'] )) {
 	$user = $_SESSION['MM_Username'];	
 	$isadmin = in_array($user,explode(',',"msjursen,au,ninamctiernan,meikeland,kfludal,sjoenh"));
-	/////////////////////////////
-	//// kode for å vise tildelte artikler
-	//"select count(id) from artikkel where bruker_feide = '%s' "
-	//"select * from karakter k where bruker_feide='%s' ";
+	///////////////////////
+	 kode for å vise tildelte artikler
+	"select count(id) from artikkel where bruker_feide = '%s' "
+	"select * from karakter k where bruker_feide='%s' ";
 	/*
 	mysql_select_db($database_apollon, $apollon);
 $query_Recordset1 = sprintf("SELECT artikkel.id, artikkel.overskrift, artikkel.artikkel, artikkel.publisert, artikkel.bruker_feide, artikkel.lerarkarakter FROM artikkel where artikkel.bruker_feide='%s'", $user);
 $Recordset1 = mysql_query($query_Recordset1, $apollon) or die(mysql_error());
-//$row_Recordset1 = mysql_fetch_assoc($Recordset1);
+$row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 $artlist = array();
 while($artlist[] = mysql_fetch_assoc($Recordset1));
@@ -74,7 +74,7 @@ array_pop($artlist);
 	<link rel="stylesheet" href="menu.css" type="text/css" />
 </head>
 	<body>
-<?php include 'menu.php' ?>
+//<?php include 'menu.php' ?>
 		<div id="page_content">
 			<h1>Velkommen</h1>
             <p>Velkommen til Apollon, her vil du kunne laste opp dine egne artikler i tillegg til å kommentere og vurdere andre sine.</p>
