@@ -7,6 +7,10 @@ $feide = $_GET['feide'];
 $q = "SELECT * FROM artikkel WHERE bruker_feide = '{$feide}'";
 $r = mysql_query($q, $apollon) or die(mysql_error());
 $artikkel = mysql_fetch_assoc($r);
+
+$qNavn = mysql_query("SELECT * FROM bruker WHERE feide = '{$feide}'") or die(mysql_error());
+$aNavn = mysql_fetch_assoc($qNavn);
+$navn = $aNavn['fornavn'] . " " . $aNavn['etternavn'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,14 +24,10 @@ $artikkel = mysql_fetch_assoc($r);
         <div id="page_header">
         	<h1>Apollon</h1>
         </div>        
-        <ul id="menu">
-            <li><a href="index.php">Hjem</a></li>
-            <li><a href="#">Artikler</a></li>
-            <li><a href="#">Brukeroversikt</a></li>
-        </ul>
+        <?php include("meny.php"); ?>
         <div id="page_content">
-            <table border="1">
-                <h2><?php echo $feide; ?> sine artikler</h2>
+            <table class="brukerliste">
+                <h2><?php echo $navn; ?> sine artikler</h2>
                 <tr>
                     <th>Overskrift</th>
                     <th>Publisert</th>    

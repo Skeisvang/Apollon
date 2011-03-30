@@ -101,11 +101,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 		<h1>Apollon</h1>
 	</div>
 	
-	<ul id="menu">
-		<li><a href="index.php">Hjem</a></li>
-		<li><a href="lastoppart.php">Ny Artikkel</a></li>
-		<li><a href="brukere.php">Brukeroversikt</a></li>
-	</ul>
+	<?php include("meny.php"); ?>
 	
 	<div id="page_content">
 		<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
