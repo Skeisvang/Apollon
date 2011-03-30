@@ -137,7 +137,7 @@ if (isset($_SESSION['MM_Username'] )) {
 		
 		<ul id="menu">
 			<li><a href="index.php">Hjem</a></li>
-			<li><a href="lastoppart.php">Ny Artikkel</a></li>
+			<li><a href="#">Artikler</a></li>
 			<li><a href="brukere.php">Brukeroversikt</a></li>
 		</ul>
 		
@@ -174,7 +174,7 @@ if (isset($_SESSION['MM_Username'] )) {
 			  <tbody>
 			  <?php do { ?>
 			    <tr>
-			      <td><?php echo $row_brukere['feide']; ?></td>
+			      <td><a href="brukerartikler.php?feide=<?php echo $row_brukere['feide']; ?>"<?php echo $row_brukere['feide']; ?></a></td>
 			      <td><?php  if ($isadmin) {  echo $row_brukere['passord']; } else { echo 'xxxx'; } ?></td>
 			      <td><?php echo $row_brukere['fornavn']; ?></td>
 			      <td><?php echo $row_brukere['etternavn']; ?></td>
