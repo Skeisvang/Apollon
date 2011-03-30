@@ -86,7 +86,7 @@ if (isset($_SESSION['MM_Username'] )) {
 		$text = GetSQLValueString($_POST['artext'], "text");
 		$over = GetSQLValueString($_POST["overskrift"],"text");
 		$sql = sprintf("insert into artikkel (overskrift,artikkel,bruker_feide) values (%s,%s,'%s')", $over,$text,$user);
-		print "$sql";
+		//print "$sql";
 		mysql_select_db($database_apollon, $apollon);
 		mysql_query($sql, $apollon) or die(mysql_error());
 		
@@ -164,7 +164,7 @@ array_pop($artlist);
                        print "<h4>Velkommen {$_SESSION["MM_Username"]}</h4> ";
 					   print "Du har {$totalRows_Recordset1} artikkler";
 					   foreach ($artlist as $art) {
-						   print "<br>" . $art["overskrift"];
+						   print '<br><a href="vis_en_artikkel.php?artid='.$art["id"] . '">' . $art["overskrift"] . '</a>';
 					   }
 					   
                     ?>
