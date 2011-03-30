@@ -50,6 +50,18 @@ if (isset($_SESSION['MM_Username'] )) {
 	$isadmin = in_array($user,explode(',',"msjursen,au,ninamctiernan,meikeland,kfludal,sjoenh"));
 	/////////////////////////////
 	//// kode for å vise tildelte artikler
+	//"select count(id) from artikkel where bruker_feide = '%s' "
+	//"select * from karakter k where bruker_feide='%s' ";
+	/*
+	mysql_select_db($database_apollon, $apollon);
+$query_Recordset1 = sprintf("SELECT artikkel.id, artikkel.overskrift, artikkel.artikkel, artikkel.publisert, artikkel.bruker_feide, artikkel.lerarkarakter FROM artikkel where artikkel.bruker_feide='%s'", $user);
+$Recordset1 = mysql_query($query_Recordset1, $apollon) or die(mysql_error());
+//$row_Recordset1 = mysql_fetch_assoc($Recordset1);
+$totalRows_Recordset1 = mysql_num_rows($Recordset1);
+$artlist = array();
+while($artlist[] = mysql_fetch_assoc($Recordset1));
+array_pop($artlist);
+*/
 }
 
 ?>
