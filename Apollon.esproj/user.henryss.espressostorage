@@ -38,24 +38,6 @@
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
-				<key>StateType</key>
-				<string>PreviewTab</string>
-				<key>URL</key>
-				<string>http://localhost/login.php?accesscheck=%2Findex.php</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/henryss/Apollon/menu.css</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/henryss/Apollon/lastoppart.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/henryss/Apollon/page.css</string>
 				<key>StateType</key>
@@ -63,43 +45,7 @@
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Users/henryss/Apollon/artikkel.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>StateType</key>
-				<string>PreviewTab</string>
-				<key>URL</key>
-				<string>file:///Users/henryss/Apollon/index.php</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/henryss/Apollon/header.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/henryss/Apollon/brukerartikler.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/henryss/Apollon/brukere.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/henryss/Apollon/login.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Users/henryss/Apollon/reg_bruker.php</string>
+				<string>file://localhost/Users/henryss/Apollon/menu.css</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
