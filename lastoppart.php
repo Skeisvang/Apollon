@@ -8,6 +8,9 @@ $MM_donotCheckaccess = "true";
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
 
   $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
 
@@ -155,10 +158,16 @@ array_pop($artlist);
 
                     <?php
                        print "<h4>Velkommen {$_SESSION["MM_Username"]}</h4> ";
-					   print "Du har {$totalRows_Recordset1} artikkler";
+					   print "Du har {$totalRows_Recordset1} artikkler<p>";
+					   print '<table><th>Vis artikkel</th><th>Rediger</th><tr><td>';
 					   foreach ($artlist as $art) {
-						   print '<br><a href="vis_en_artikkel.php?artid='.$art["id"] . '">' . $art["overskrift"] . '</a>';
+						   print '<br><a target="_nyside" href="vis_en_artikkel.php?artid='.$art["id"] . '">' . $art["overskrift"] . '</a>';
 					   }
+					   print "</td><td>";
+					   foreach ($artlist as $art) {
+						   print '<br><a  target="_annaside" href="rediger_en_artikkel.php?artid='.$art["id"] . '">' . $art["overskrift"] . '</a>';
+					   }
+					   print '</td></tr></table>';
 					   
                     ?>
                     <p>
