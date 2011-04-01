@@ -8,6 +8,14 @@
 </head>
 
 <body>
+<?php include 'menu.php' ?>
 <h2>Registrering fullført</h2>
+<script>
+var t=setTimeout("goBackToReg()",1000);
+function goBackToReg() {
+  window.location = "reg_bruker.php";
+}
+
+</script>
 </body>
 </html>

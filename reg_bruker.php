@@ -65,38 +65,6 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 </head>
 
 <body>
-<<<<<<< HEAD
-<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
-  <table align="center">
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Feide:</td>
-      <td><input type="text" name="feide" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Passord:</td>
-      <td><input type="text" name="passord" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Fornavn:</td>
-      <td><input type="text" name="fornavn" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Etternavn:</td>
-      <td><input type="text" name="etternavn" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Mail:</td>
-      <td><input type="text" name="mail" value="" size="32" /></td>
-    </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="submit" value="Registrer bruker" /></td>
-    </tr>
-  </table>
-  <input type="hidden" name="MM_insert" value="form1" />
-</form>
-<p>&nbsp;	</p>
-=======
 	
 	
 <?php include 'menu.php' ?>
@@ -132,6 +100,5 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 		  <input type="hidden" name="MM_insert" value="form1" />
 		</form>
 	</div>
->>>>>>> 2a362022cce41f65b7900ba75fef6d549980dcae
 </body>
 </html>

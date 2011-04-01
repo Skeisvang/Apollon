@@ -47,10 +47,10 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
 $user = '';
 $isadmin = false;
 if (isset($_SESSION['MM_Username'] )) {
-	mysql_select_db($database_apollon, $apollon);
-	$user = $_SESSION['MM_Username'];	
-	$isadmin = in_array($user,explode(',',"msjursen,au,ninamctiernan,meikeland,kfludal,sjoenh"));
-	include("tildel.php");
+    mysql_select_db($database_apollon, $apollon);
+    $user = $_SESSION['MM_Username'];    
+    $isadmin = in_array($user,explode(',',"msjursen,au,ninamctiernan,meikeland,kfludal,sjoenh"));
+    include("tildel.php");
 }
 
 ?>
@@ -58,102 +58,104 @@ if (isset($_SESSION['MM_Username'] )) {
 <html>
 <head>
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
-	<link rel="stylesheet" href="page.css" type="text/css" />
-	<link rel="stylesheet" href="menu.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
+    <link rel="stylesheet" href="page.css" type="text/css" />
+    <link rel="stylesheet" href="menu.css" type="text/css" />
 </head>
-	<body>
-		<div id="page_header">
-			<h1 id="logo">Apollon</h1>
-		</div>
-		
-		<ul id="menu">
-			<li><a href="index.php">Hjem</a></li>
-			<li><a href="lastoppart.php">Ny Artikkel</a></li>
-			<li><a href="brukere.php">Brukeroversikt</a></li>
-		</ul>
-		
-		<div id="page_content">
-			<h1>Velkommen</h1>
+    <body>
+        <div id="page_header">
+            <h1 id="logo">Apollon</h1>
+        </div>
+        
+        <ul id="menu">
+            <li><a href="index.php">Hjem</a></li>
+            <li><a href="lastoppart.php">Ny Artikkel</a></li>
+            <li><a href="brukere.php">Brukeroversikt</a></li>
+        </ul>
+        
+        <div id="page_content">
+            <h1>Velkommen</h1>
                <div class="testcode">
             <?php
-			print count($artlist). " artikler er lagret i systemet<br>";
-			print count($published). " artikler er publisert<br>";
-			print count($vurderinger). " artikler er tildelt til vurdering<br>";
-			print $count. " elever er tildelt artikler til vurdering<br>";
-			
-			print "<p>Du er tildelt {$mine} artikler til vurdering</p>"; 
-			?>
+            print count($artlist). " artikler er lagret i systemet<br>";
+            print count($published). " artikler er publisert<br>";
+            print count($vurderinger). " artikler er tildelt til vurdering<br>";
+            print $vcount. " elever er tildelt artikler til vurdering<br>";
+            
+            print "<p>Du er tildelt {$mine} artikler til vurdering</p>"; 
+            ?>
                 </div>
 <?php
 if (isset($_SESSION['MM_Username'] )) {
-	$qNumArtikler = sprintf("select * from artikkel where bruker_feide = '%s'", $user);
-	$rNumArtikler = mysql_query($qNumArtikler, $apollon);
-	if (mysql_num_rows($rNumArtikler) > 0)
-	{ // Brukeren har artikler og må vurdere
-		$NumArtikler = mysql_num_rows($rNumArtikler);
-		$qNumVurderinger = sprintf("select * from karakter where bruker_feide='%s'", $user);
-		$rNumVurderinger = mysql_query($qNumVurderinger);
-		if (mysql_num_rows($rNumVurderinger) > 0)
-		{ // Brukeren har fått tildelt vurderinger
-		
-			$aVurderte = array();
-			$aUvurderte = array();
-			while ($aVurdering = mysql_fetch_assoc($rNumVurderinger))
-			{
-				if ($aVurdering['karakter'] == NULL)
-				{
-					$aVurderte[] = $aVurdering;
-				}
-				else
-				{
-					$aUvurderte[] = $aVurdering;
-				}
-			}
+    $qNumArtikler = sprintf("select * from artikkel where bruker_feide = '%s'", $user);
+    $rNumArtikler = mysql_query($qNumArtikler, $apollon);
+    if (mysql_num_rows($rNumArtikler) > 0)
+    { // Brukeren har artikler og må vurdere
+        $NumArtikler = mysql_num_rows($rNumArtikler);
+        $qNumVurderinger = sprintf("select k.*,a.overskrift from karakter k inner join artikkel a 
+               on (a.id = k.artikkel_id) where k.bruker_feide='%s'", $user);
+        print $qNumVurderinger;
+        $rNumVurderinger = mysql_query($qNumVurderinger);
+        if (mysql_num_rows($rNumVurderinger) > 0)
+        { // Brukeren har fått tildelt vurderinger
+        
+            $aVurderte = array();
+            $aUvurderte = array();
+            while ($aVurdering = mysql_fetch_assoc($rNumVurderinger))
+            {
+                if ($aVurdering['karakter'] == NULL)
+                {
+                    $aUvurderte[] = $aVurdering;
+                }
+                else
+                {
+                    $aVurderte[] = $aVurdering;
+                }
+            }
 ?>
             <h1>Vurderinger</h1>
             <p>Velkommen til Apollon, her er en status over dine vurderinger:</p>
             <table class="brukerliste">
-            	<h2>Vurderte</h2>
-            	<tr>
-                	<th>Artikkel</th>
+                <h2>Vurderte</h2>
+                <tr>
+                    <th>Artikkel</th>
                     <th>Bruker</th>
                     <th>Karakter</th>
                 </tr>
                 <?php
                 foreach ($aVurderte as $a)
-				{
-					print '<tr>';
-					print '<td><a href="vurder.php?id='.$a['artikkel_id'].'>'.$a['overskrift'].'</a></td>';
-					print '<td>'.$a['artikkel_bruker_feide'].'</td>';
-					print '<td>'.$a['karakter'].'</td>';
-					print '</tr>';
-				}
-				?>
+                {
+                    print '<tr>';
+                    print '<td><a href="vurder.php?id='.$a['artikkel_id'].'>'.$a['overskrift'].'</a></td>';
+                    print '<td>'.$a['artikkel_bruker_feide'].'</td>';
+                    print '<td>'.$a['karakter'].'</td>';
+                    print '</tr>';
+                }
+                ?>
             </table>
             <table class="brukerliste">
-            	<h2>Uvurderte</h2>
-            	<tr>
-                	<th>Artikkel</th>
+                <h2>Uvurderte</h2>
+                <tr>
+                    <th>Artikkel</th>
                     <th>Bruker</th>
                 </tr>
                 <?php
-				foreach ($aUvurderte as $a)
-				{
-					print '<tr>';
-					print '<td><a href="vurder.php?id='.$a['artikkel_id'].'>'.$a['overskrift'].'</a></td>';
-					print '<td>'.$a['artikkel_bruker_feide'].'</td>';
-					print '</tr>';
-				}
-				?>
+                foreach ($aUvurderte as $a)
+                {
+                    print '<tr>';
+                    print '<td><a href="vurder.php?id='.$a['artikkel_id'].'">'.$a['overskrift'].'</a></td>';
+                    print '<td>'.$a['artikkel_bruker_feide'].'</td>';
+                    print '</tr>';
+                }
+                ?>
             </table>
 <?php
-		} else {
-			print "<p>Ingen artikler er tildelt deg ennå";
-		}
-		}
-	}
+        } else {
+            print "<p>Ingen artikler er tildelt deg ennå";
+        }
+        }
+    }
 ?>
-		</div>
-	</body>
+        </div>
+    </body>
 </html>
