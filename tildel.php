@@ -43,7 +43,6 @@ if (count($vurderinger)) {
   }
   $vcount = count($evurd);
 }
-print "mine=$mine ";
 
 
 
@@ -63,7 +62,6 @@ if ($mine < 3) {
   }
   
 }
-print "mine=$mine ";
 
 /*
 print '<pre>';

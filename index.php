@@ -1,55 +1,8 @@
 <?php
-require_once("Connections/apollon.php");
-if (!isset($_SESSION)) {
-  session_start();
-}
-$MM_authorizedUsers = "";
-$MM_donotCheckaccess = "true";
+require_once("access_check.php");
 
-// *** Restrict Access To Page: Grant or deny access to this page
-function isAuthorized($strUsers, $strGroups, $UserName, $UserGroup) { 
-//   For security, start by assuming the visitor is NOT authorized. 
-  $isValid = False; 
-
-//   When a visitor has logged into this site, the Session variable MM_Username set equal to their username. 
-//   Therefore, we know that a user is NOT logged in if that Session variable is blank. 
-  if (!empty($UserName)) { 
-//     Besides being logged in, you may restrict access to only certain users based on an ID established when they login. 
-//     Parse the strings into arrays. 
-    $arrUsers = Explode(",", $strUsers); 
-    $arrGroups = Explode(",", $strGroups); 
-    if (in_array($UserName, $arrUsers)) { 
-      $isValid = true; 
-    } 
-//     Or, you may restrict access to only certain users based on their username. 
-    if (in_array($UserGroup, $arrGroups)) { 
-      $isValid = true; 
-    } 
-    if (($strUsers == "") && true) { 
-      $isValid = true; 
-    } 
-  } 
-  return $isValid; 
-}
-
-$MM_restrictGoTo = "login.php";
-if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers, $_SESSION['MM_Username'], $_SESSION['MM_UserGroup'])))) {   
-  $MM_qsChar = "?";
-  $MM_referrer = $_SERVER['PHP_SELF'];
-  if (strpos($MM_restrictGoTo, "?")) $MM_qsChar = "&";
-  if (isset($QUERY_STRING) && strlen($QUERY_STRING) > 0) 
-  $MM_referrer .= "?" . $QUERY_STRING;
-  $MM_restrictGoTo = $MM_restrictGoTo. $MM_qsChar . "accesscheck=" . urlencode($MM_referrer);
-  header("Location: ". $MM_restrictGoTo); 
-  exit;
-}
-
-$user = '';
-$isadmin = false;
 if (isset($_SESSION['MM_Username'] )) {
-    mysql_select_db($database_apollon, $apollon);
-    $user = $_SESSION['MM_Username'];    
-    $isadmin = in_array($user,explode(',',"msjursen,au,ninamctiernan,meikeland,kfludal,sjoenh"));
+    // tildeling av artikler
     include("tildel.php");
 }
 
@@ -74,7 +27,7 @@ if (isset($_SESSION['MM_Username'] )) {
         </ul>
         
         <div id="page_content">
-            <h1>Velkommen</h1>
+        <h1>Velkommen <?php echo $user?></h1>
                <div class="testcode">
             <?php
             print count($artlist). " artikler er lagret i systemet<br>";
@@ -94,7 +47,7 @@ if (isset($_SESSION['MM_Username'] )) {
         $NumArtikler = mysql_num_rows($rNumArtikler);
         $qNumVurderinger = sprintf("select k.*,a.overskrift from karakter k inner join artikkel a 
                on (a.id = k.artikkel_id) where k.bruker_feide='%s'", $user);
-        print $qNumVurderinger;
+        //print $qNumVurderinger;
         $rNumVurderinger = mysql_query($qNumVurderinger);
         if (mysql_num_rows($rNumVurderinger) > 0)
         { // Brukeren har fått tildelt vurderinger
@@ -126,7 +79,7 @@ if (isset($_SESSION['MM_Username'] )) {
                 foreach ($aVurderte as $a)
                 {
                     print '<tr>';
-                    print '<td><a href="vurder.php?id='.$a['artikkel_id'].'>'.$a['overskrift'].'</a></td>';
+                    print '<td><a href="vurder.php?id='.$a['artikkel_id'].'">'.$a['overskrift'].'</a></td>';
                     print '<td>'.$a['artikkel_bruker_feide'].'</td>';
                     print '<td>'.$a['karakter'].'</td>';
                     print '</tr>';
@@ -153,7 +106,10 @@ if (isset($_SESSION['MM_Username'] )) {
         } else {
             print "<p>Ingen artikler er tildelt deg ennå";
         }
-        }
+    } else {
+        print "<h1>Du har ikke lasta opp en artikkel ennå</h1>";
+        print "Klikk på linken <b>Ny artikkel</b> i menyen og last opp teksten din";
+    }
     }
 ?>
         </div>

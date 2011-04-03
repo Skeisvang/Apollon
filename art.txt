@@ -1,3 +1,5 @@
+create database artikkel;
+use artikkel;
 -- MySQL dump 10.13  Distrib 5.1.46, for suse-linux-gnu (i686)
 --
 -- Host: localhost    Database: artikler

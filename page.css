@@ -59,3 +59,29 @@ table.navbuttons img {
   font-size:0.8em;
   color:#ccccff;
 }
+
+form.vurdering {
+    padding:12px;
+}
+
+form.vurdering textarea {
+    background:#f8f8c0;
+    float:right;
+}
+
+form p:first-letter {
+    font-size:2.4em;
+    color:#334499;
+}
+
+form p:after {
+    content:".";
+    display:block;
+    height:0;
+    visibility:hidden;
+    clear:both;
+}
+
+form.vurdering label {
+    font-size:1.2em;
+}
