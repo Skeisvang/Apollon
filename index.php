@@ -104,7 +104,7 @@ if (isset($_SESSION['MM_Username'] )) {
     }
     }
 ?>
-        </div>
         <p></p>
+        </div>
     </body>
 </html>
