@@ -19,11 +19,17 @@ $navn = $aNavn['fornavn'] . " " . $aNavn['etternavn'];
 <html>
 	<head>
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="page.css" type="text/css" />
+		<link rel="stylesheet" href="menu.css" type="text/css" />
     </head>
     <body>
-        <h2><?php echo $artikkel['overskrift']; ?></h2>
-        <small>Skrevet av <?php echo $navn; ?></small>
-        <p><?php echo $artikkel['artikkel']; ?></p>
-        <a href="brukerartikler.php?feide=<?php echo $artikkel['bruker_feide']; ?>">Tilbake</a>
+		<?php include 'menu.php' ?>
+		
+		<div id="page_content">
+			<h2><?php echo $artikkel['overskrift']; ?></h2>
+			<small>Skrevet av <?php echo $navn; ?></small>
+			<p><?php echo $artikkel['artikkel']; ?></p>
+			<a href="brukerartikler.php?feide=<?php echo $artikkel['bruker_feide']; ?>">Tilbake</a>
+		</div>
     </body>
 </html>
