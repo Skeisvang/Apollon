@@ -60,6 +60,10 @@ table.navbuttons img {
   color:#ccccff;
 }
 
+table.scores {
+    text-align:center;
+}
+
 form.vurdering {
     padding:12px;
 }

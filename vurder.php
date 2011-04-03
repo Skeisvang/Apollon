@@ -5,7 +5,6 @@ if (!(isset($_GET['id']) or isset($_POST['id'])) )
     die("Du må spesifisere en artikkel!");
 $id = $_GET['id'] or $_POST['id'];
 
-$navn = $art['fornavn'] . " " . $art['etternavn'];
 
 // lagrer vurderingen
 if (isset($_SESSION['MM_Username'] )) {
@@ -33,6 +32,7 @@ $r = mysql_query($q);
 if (mysql_num_rows($r) == 0)
     die("Denne artikkelen finnes ikke");
 $art = mysql_fetch_assoc($r);
+$navn = $art['fornavn'] . " " . $art['etternavn'];
 
 /*
 print '<pre>';

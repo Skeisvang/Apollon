@@ -46,10 +46,10 @@ if (count($vurderinger)) {
 
 
 
-// dersom denne eleven har $mine < 3 - da deler vi ut artikler
-if ($mine < 3) {
+// dersom denne eleven har $mine < 4 - da deler vi ut artikler
+if ($mine < 5) {
   foreach($published as $p) {
-    if ($p["bruker_feide"] != $user and $p["ant"] < 4) {
+    if ($p["bruker_feide"] != $user and $p["ant"] < 7) {
         // gi denne artikkelen til eleven
         $sql = sprintf("insert into karakter (artikkel_id,artikkel_bruker_feide,bruker_feide) values  (%s,'%s','%s')", $p['id'],$p['bruker_feide'],$user);
         //print "$sql";
@@ -57,7 +57,7 @@ if ($mine < 3) {
         mysql_query($sql, $apollon) or die(mysql_error());
         $mine++;
         $vcount++;
-        if ($mine > 2) break;
+        if ($mine > 4) break;
     }
   }
   
