@@ -1,5 +1,6 @@
 <?php
-require_once('Connections/apollon.php');
+require_once("access_check.php");
+
 mysql_select_db($database_apollon, $apollon);
 if (!isset($_GET['feide']))
 	die("Du må spesifisere feide-iden");
@@ -38,6 +39,7 @@ $navn = $aNavn['fornavn'] . " " . $aNavn['etternavn'];
                 </tr>
                 <?php } while ($artikkel = mysql_fetch_assoc($r)); ?>
             </table>
+			<p></p>
         </div>
     </body>
 </html>
