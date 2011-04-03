@@ -126,7 +126,7 @@ if (isset($_SESSION['MM_Username'] )) {
                 foreach ($aVurderte as $a)
                 {
                     print '<tr>';
-                    print '<td><a href="vurder.php?id='.$a['artikkel_id'].'>'.$a['overskrift'].'</a></td>';
+                    print '<td><a href="vurder.php?id='.$a['artikkel_id'].'">'.$a['overskrift'].'</a></td>';
                     print '<td>'.$a['artikkel_bruker_feide'].'</td>';
                     print '<td>'.$a['karakter'].'</td>';
                     print '</tr>';
