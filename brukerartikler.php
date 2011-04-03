@@ -38,6 +38,7 @@ $navn = $aNavn['fornavn'] . " " . $aNavn['etternavn'];
                 </tr>
                 <?php } while ($artikkel = mysql_fetch_assoc($r)); ?>
             </table>
+			<p></p>
         </div>
     </body>
 </html>
