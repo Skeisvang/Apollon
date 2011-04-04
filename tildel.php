@@ -49,7 +49,7 @@ if (count($vurderinger)) {
 // dersom denne eleven har $mine < 4 - da deler vi ut artikler
 if ($mine < 5) {
   foreach($published as $p) {
-    if ($p["bruker_feide"] != $user and $p["ant"] < 7) {
+    if ($p["bruker_feide"] != $user and $p["ant"] < 8) {
         // gi denne artikkelen til eleven
         $sql = sprintf("insert into karakter (artikkel_id,artikkel_bruker_feide,bruker_feide) values  (%s,'%s','%s')", $p['id'],$p['bruker_feide'],$user);
         //print "$sql";

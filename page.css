@@ -4,7 +4,7 @@ body {
 	color: #222;
 	background-color: #f0f0f0;
 	border: 1px solid #333333;
-	overflow: hidden;
+/*	overflow: hidden; */
 }
 
 #page_header {
@@ -61,8 +61,17 @@ table.navbuttons img {
   color:#ccccff;
 }
 
-table.scores {
+table td.scores {
     text-align:center;
+}
+
+table.sammendrag tr:nth-child(odd)   { background-color:#eee; }
+table.sammendrag tr:nth-child(even)  { background-color:#fff; }
+table.sammendrag {
+  border-collapse:collapse;
+}
+table.sammendrag td {
+  border:solid gray 1px;
 }
 
 form.vurdering {
