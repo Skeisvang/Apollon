@@ -55,7 +55,7 @@ foreach ($elever as $elev) {
       $score = $escore[$feide]; 
       $kar =  ($score->antall > 0) ? round($score->poeng / $score->antall,2) : 0;
       print "<tr><td>$i</td><td>$ln</td><td>$fn</td><td>{$feide}</td> <td class='scores'>{$score->antall}</td> <td class='scores'>" 
-          . round($kar) ."</td><td class='scores'>{$score->vurd}</td></tr>";
+          . round($kar,2) ."</td><td class='scores'>{$score->vurd}</td></tr>";
     } else {
       print "<tr><td>$i</td><td>$ln</td><td>$fn</td><td>{$feide}</td> <td></td> <td>" 
           . "</td><td></td></tr>";
